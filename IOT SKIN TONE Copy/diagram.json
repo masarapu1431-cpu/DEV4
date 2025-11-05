@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "author": "Rehan Sharieff",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -115.2, "left": 244.84, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -239.7, "left": 465, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -6.4,
+      "left": -133.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 282.35,
+      "left": 268.8,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr2",
+      "top": 176,
+      "left": -133.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr3",
+      "top": -188.8,
+      "left": -143.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 397.55,
+      "left": 268.8,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 339.95,
+      "left": 268.8,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr4",
+      "top": -284.8,
+      "left": -143.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 445.55,
+      "left": 268.8,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 195.14,
+      "left": 413.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v38.4", "h-57.6", "v-96", "h-182.4", "v48" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v201.6", "h-268.8", "v-86.4" ] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v0" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h28.8", "v-19.2", "h-105.6", "v-220.8" ] ],
+    [ "ldr2:VCC", "esp:3V3", "red", [ "h28.8", "v-326.4", "h153.6", "v48" ] ],
+    [ "ldr3:VCC", "esp:3V3", "red", [ "h192", "v86.4", "h9.6" ] ],
+    [ "ldr4:VCC", "esp:3V3", "red", [ "h172.8", "v182.4" ] ],
+    [ "ldr1:GND", "r2:1", "black", [ "h105.6", "v374" ] ],
+    [ "ldr4:GND", "r1:1", "black", [ "h144", "v527.6" ] ],
+    [ "ldr3:GND", "r3:1", "black", [ "h134.4", "v498.8" ] ],
+    [ "ldr2:GND", "r4:1", "black", [ "h67.2", "v239.6" ] ],
+    [ "ldr4:AO", "esp:34", "green", [ "h96", "v191.3" ] ],
+    [ "ldr3:AO", "esp:35", "green", [ "h67.2", "v124.1" ] ],
+    [ "ldr1:AO", "esp:33", "green", [ "h163.2", "v-39.1" ] ],
+    [ "ldr2:AO", "esp:32", "green", [ "h144", "v-250.3" ] ],
+    [ "ldr4:AO", "r1:2", "green", [ "h124.8", "v498.5", "h230.4", "v28.8", "h-57.6" ] ],
+    [
+      "ldr3:AO",
+      "r3:2",
+      "green",
+      [ "h0", "v37.7", "h-182.4", "v460.8", "h345.6", "v-48", "h153.6", "v38.4", "h0" ]
+    ],
+    [ "ldr1:AO", "r2:2", "green", [ "h86.4", "v335.3", "h220.8", "v28.8" ] ],
+    [ "ldr2:AO", "r4:2", "green", [ "h19.2", "v200.9", "h278.4" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v-19.2", "h-383.85", "v-268.8" ] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v-48", "h-230.4", "v-86.4" ] ],
+    [ "oled1:SDA", "esp:21", "green", [ "v0" ] ],
+    [ "oled1:SCL", "esp:22", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
